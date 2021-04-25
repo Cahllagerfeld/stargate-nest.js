@@ -29,20 +29,18 @@ export class AstraService {
   }
 
   private async prepareCollection() {
-    console.log(this.configObject);
     const client = await createClient(this.configObject);
-    console.log(client);
-    // this.collection = client
-    //   .namespace(this.options.namespace)
-    //   .collection(this.options.collection);
+    this.collection = client
+      .namespace(this.options.namespace)
+      .collection(this.options.collection);
   }
 
-  public async get(id: string) {
+  public async get() {
     await this.prepareCollection();
-    return await this.collection.get(id);
+    return await this.collection.find();
   }
 
-  public async create(object: any) {
+  public async create<T>(object: T) {
     try {
       await this.prepareCollection();
       return await this.collection.create('test', { ...object });
