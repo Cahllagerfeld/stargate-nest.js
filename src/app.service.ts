@@ -1,8 +1,10 @@
 import { Injectable } from '@nestjs/common';
+import { AstraService } from './astra/astra.service';
 
 @Injectable()
 export class AppService {
-  getHello(): string {
-    return 'Hello World!';
+  constructor(private readonly astra: AstraService) {}
+  async getHello() {
+    return this.astra.get('');
   }
 }
