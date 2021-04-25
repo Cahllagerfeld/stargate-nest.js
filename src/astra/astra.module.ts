@@ -5,7 +5,7 @@ import { CONFIG_OPTIONS } from './constants';
 
 @Module({})
 export class AstraModule {
-  static forFeature(options: AstraConfigOptions): DynamicModule {
+  static forRoot(options: AstraConfigOptions): DynamicModule {
     return {
       module: AstraModule,
       providers: [{ provide: CONFIG_OPTIONS, useValue: options }, AstraService],

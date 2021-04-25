@@ -5,6 +5,6 @@ import { AstraService } from './astra/astra.service';
 export class AppService {
   constructor(private readonly astra: AstraService) {}
   async getHello() {
-    return this.astra.get('');
+    return await this.astra.get('test');
   }
 }

@@ -7,10 +7,9 @@ import { AstraModule } from './astra/astra.module';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
-    AstraModule.forFeature({
-      baseUrl: 'localhost:8082',
+    AstraModule.forRoot({
       collection: 'users',
-      namespace: 'test',
+      namespace: 'eddiehub',
     }),
   ],
   controllers: [AppController],
